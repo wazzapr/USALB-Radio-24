@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>USALB Radio 24</title>
+  <meta name="description" content="USALB Radio 24 — live 24/7 internet radio.">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="station">
+    <div class="logo" aria-hidden="true">24</div>
+    <p class="eyebrow">LIVE • 24/7 INTERNET RADIO</p>
+    <h1>USALB Radio 24</h1>
+    <p class="tagline">Music, live shows and podcasts — around the clock.</p>
+
+    <section class="player" aria-label="Radio player">
+      <div class="status">
+        <span id="dot"></span>
+        <span id="status">Ready to play</span>
+      </div>
+
+      <audio id="audio" preload="none" controls>
+        Your browser does not support audio playback.
+      </audio>
+
+      <button id="play" type="button">▶ Play USALB Radio 24</button>
+      <p id="message" class="message">The stream URL will be configured when the radio server is connected.</p>
+    </section>
+
+    <footer>USALB Radio 24</footer>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
