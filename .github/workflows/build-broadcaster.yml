@@ -1,0 +1,32 @@
+name: Build Windows Broadcaster
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "broadcaster/**"
+      - ".github/workflows/build-broadcaster.yml"
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyInstaller
+        run: python -m pip install --upgrade pip pyinstaller
+
+      - name: Build EXE
+        run: pyinstaller --onefile --noconsole --name USALB-Radio-24-Broadcaster broadcaster/usalb_broadcaster.py
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: USALB-Radio-24-Broadcaster-Windows
+          path: dist/USALB-Radio-24-Broadcaster.exe
